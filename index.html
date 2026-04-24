@@ -206,7 +206,7 @@
             return text.trim();
         }
 
-        function bytesTobase64(data) {
+        function bytesToBase64(data) {
             var text = "";
 
             for (var i = 0; i < data.length; i++) {
@@ -217,7 +217,7 @@
         }
 
         function addToHistory(key) {
-            if (historyBox.innerText == "No kets Yet") {
+            if (historyBox.innerText == "No keys Yet") {
                 historyBox.innerHTML = "";
             }
 
@@ -230,7 +230,7 @@
             historyBox.innerHTML = "<div>&gt; " + shortKey + "</div>" + historyBox.innerHTML;
         }
 
-        function animatedResult() {
+        function animateResult() {
             result.classList.remove("pop");
             void result.offsetWidth;
             result.classList.add("pop");
