@@ -17,7 +17,7 @@
         }
 
         .box {
-            max-width: 460;
+            max-width: 460px;
             margin: auto;
             padding: 25px;
             background: white;
@@ -64,7 +64,7 @@
             cursor: pointer;
         }
 
-        button:hove {
+        button:hover {
             opacity: 0.85;
         }
 
@@ -91,7 +91,7 @@
         }
 
         .pop {
-            animation: pop 0,2s;
+            animation: pop 0.2s;
         }
 
         @keyframes pop {
@@ -161,19 +161,19 @@
                 bytesInput.value = 16;
             }
 
-            if (byes > 500) {
+            if (bytes > 500) {
                 bytes = 500;
-                bytesInput.Value = 500;
+                bytesInput.value = 500;
                 alert("I limited it to 500 bytes so it does not get ridiculous.");
             }
 
             var data = new Uint8Array(bytes);
-            crypto,getRandomValues(data);
+            crypto.getRandomValues(data);
 
             var format = formatInput.value;
             var key = "";
             
-            if (format == "nase64") {
+            if (format == "base64") {
                 key = bytesToBase64(data);
             } else {
                 key = bytesToHex(data, format == "spaced")
@@ -193,8 +193,8 @@
                 var hex = data [i].toString(16);
 
                 // I knowm padStart exixts, but this is easier to understand.
-                if (hex.lenght == 1) {
-                    het = "0" + hex;
+                if (hex.length == 1) {
+                    hex = "0" + hex;
                 }
 
                 text += hex;
@@ -210,7 +210,7 @@
             var text = "";
 
             for (var i = 0; i < data.length; i++) {
-                text += Strings.fromCharCode(data[i]);
+                text += String.fromCharCode(data[i]);
             }
 
             return btoa(text);
@@ -223,14 +223,14 @@
 
             var shortKey =key;
 
-            if (shortKet.length > 70) {
+            if (shortKey.length > 70) {
                 shortKey = shortKey.substring(0,70) + "...";
             }
 
-            historyBox.innerHTML = "<div>&gt; " + shortKet + "</div>" + historyBox.innerHTML;
+            historyBox.innerHTML = "<div>&gt; " + shortKey + "</div>" + historyBox.innerHTML;
         }
 
-        function animatdResult() {
+        function animatedResult() {
             result.classList.remove("pop");
             void result.offsetWidth;
             result.classList.add("pop");
@@ -239,7 +239,7 @@
         function copyKey() {
             result.select();
             document.execCommand("copy");
-            alet("Copied..");
+            alert("Copied..");
         }
 
         function saveKey() {
@@ -252,7 +252,7 @@
             var blob = new Blob([text], { type: "text/plain" });
 
             var link = document.createElement("a");
-            link.href = URL.createObjectURL(blolb);
+            link.href = URL.createObjectURL(blob);
             link.download = "generate-key.txt";
         }
 
@@ -268,12 +268,12 @@
                 clearInterval(autoTimer);
                 button.innerText = "Auto regenerate off";
             } else {
-                autoRuning = true;
+                autoRunning = true;
                 autoTimer = setInterval(generateKey, 2000);
                 button.innerText = "Auto regenerate: ON";
             }
         }
     </script>
-    
+
 </body>
 </html>
