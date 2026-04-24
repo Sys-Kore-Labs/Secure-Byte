@@ -40,4 +40,4 @@ Nothing fancy, just trying to understand the basics properly.
 
 ## 🚀 How to run
 
-Just open:
+Just open: https://sys-kore-labs.github.io/Secure-Byte/
