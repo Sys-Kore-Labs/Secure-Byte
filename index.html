@@ -148,9 +148,8 @@
 
         document.getElementById("generateBtn").onclick = generateKey;
         document.getElementById("copyBtn").onclick = copyKey;
-        document.getElementById("saveBtn").onclick = savekey;
+        document.getElementById("saveBtn").onclick = saveKey;
         document.getElementById("themeBtn").onclick = changeTheme;
-        document.getElementById("autoBtn").onclick = chagenTheme;
         document.getElementById("autoBtn").onclick = toggleAuto;
 
         function generateKey() {
@@ -168,7 +167,7 @@
             }
 
             var data = new Uint8Array(bytes);
-            crypto.getRandomValues(data);
+            window.crypto.getRandomValues(data);
 
             var format = formatInput.value;
             var key = "";
@@ -217,7 +216,7 @@
         }
 
         function addToHistory(key) {
-            if (historyBox.innerText == "No keys Yet") {
+            if (historyBox.innerText == "No keys yet") {
                 historyBox.innerHTML = "";
             }
 
@@ -254,6 +253,7 @@
             var link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
             link.download = "generate-key.txt";
+            link.click();
         }
 
         function changeTheme() {
